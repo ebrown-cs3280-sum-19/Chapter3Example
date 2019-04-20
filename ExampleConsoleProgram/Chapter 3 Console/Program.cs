@@ -21,39 +21,38 @@ namespace Chapter_3_Console
             Console.ReadLine();
 
             //Create variables
-            string sFirstNumber;
-            string sSecondNumber;
-            int iFirstNumber;
-            int iSecondNumber;
-            int iSum;
+            string input;
+            int secondNumber;
+            int sum;
 
             //Get the numbers
             Console.Write("Enter First Number: ");
-            sFirstNumber = Console.ReadLine();
+            input = Console.ReadLine();
+    
+            //Convert                v inline variable declaration
+            int.TryParse(input, out int firstNumber); // will set out to 0 and return false if fails
             Console.Write("Enter Second Number: ");
-            sSecondNumber = Console.ReadLine();
 
-            //Convert the numbers
-            Int32.TryParse(sFirstNumber, out iFirstNumber);
-            //iFirstNumber = Int32.Parse(sFirstNumber);     //Don't use
-            iSecondNumber = Convert.ToInt32(sSecondNumber);
+            input = Console.ReadLine();
+            secondNumber = Convert.ToInt32(input); // will throw an exception if fails
+
 
             //Add the numbers
-            iSum = iFirstNumber + iSecondNumber;
+            sum = firstNumber + secondNumber;
 
             //Display the total
-            MessageBox.Show("The sum of " + sFirstNumber + " and " + sSecondNumber + " is " + iSum, "Sum",
+            MessageBox.Show($"The sum of {firstNumber} and {secondNumber} is {sum}", "Sum",
                                  MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             
             //If statements
-            if (iFirstNumber > iSecondNumber)
+            if (firstNumber > secondNumber)
             {
-                MessageBox.Show(sFirstNumber + " is greater than " + iSecondNumber);
+                MessageBox.Show($"{firstNumber} is greater than {secondNumber}");
             }
 
-            if (iFirstNumber < iSecondNumber)
+            if (firstNumber < secondNumber)
             {
-                MessageBox.Show(sFirstNumber + " is less than " + iSecondNumber);
+                MessageBox.Show($"{firstNumber} is less than {secondNumber}");
             }
 
         }
